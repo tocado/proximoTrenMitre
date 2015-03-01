@@ -13,6 +13,7 @@ app.controller('mainController', function ($scope) {
     function onSuccess(position) {
         yo.mensaje = 'Latitude: '  + position.coords.latitude +
             'Longitude: ' + position.coords.longitude;
+        
         alert('Latitude: '  + position.coords.latitude +
             'Longitude: ' + position.coords.longitude);
     }
@@ -26,5 +27,7 @@ app.controller('mainController', function ($scope) {
 
     // Options: throw an error if no update is received every 30 seconds.
     //
+    alert(123);
+    alert(navigator);
     this.mensaje = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
 });
