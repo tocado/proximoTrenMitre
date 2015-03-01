@@ -3,7 +3,6 @@ var app = angular.module('Inicial', ['ui.bootstrap']);
 
 app.controller('mainController', function ($scope) {
     "use strict";
-    this.mensaje = "sin gps";
     var yo = this;
 
     // onSuccess Callback
@@ -11,23 +10,22 @@ app.controller('mainController', function ($scope) {
     //   the current GPS coordinates
     //
     function onSuccess(position) {
-        yo.mensaje = 'Latitude: '  + position.coords.latitude +
-            'Longitude: ' + position.coords.longitude;
-        
-        alert('Latitude: '  + position.coords.latitude +
-            'Longitude: ' + position.coords.longitude);
+        $scope.mensaje = 'Latitude: '  + position.coords.latitude +'Longitude: ' + position.coords.longitude;
+        alert('Latitude: '  + position.coords.latitude + 'Longitude: ' + position.coords.longitude);
     }
 
     // onError Callback receives a PositionError object
     //
     function onError(error) {
-        yo.mensaje = 'code: '    + error.code    + '\n' +
+        $scope.mensaje = 'code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n';
     }
 
     // Options: throw an error if no update is received every 30 seconds.
     //
-    alert(123);
-    alert(navigator);
-    this.mensaje = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+//    alert(123);
+  //  alert(navigator);
+    navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 1000 });
+    $scope.mensaje = "sin gps";
+
 });
