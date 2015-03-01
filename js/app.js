@@ -13,6 +13,8 @@ app.controller('mainController', function ($scope) {
     function onSuccess(position) {
         yo.mensaje = 'Latitude: '  + position.coords.latitude +
             'Longitude: ' + position.coords.longitude;
+        alert('Latitude: '  + position.coords.latitude +
+            'Longitude: ' + position.coords.longitude);
     }
 
     // onError Callback receives a PositionError object
